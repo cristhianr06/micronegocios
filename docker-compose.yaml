@@ -13,7 +13,7 @@ services:
       - ./addons:/mnt/extra-addons/addons
       - ./custom_addons:/mnt/extra-addons/custom_addons
     environment:
-      - HOST=mydb
+      - HOST=db
       - USER=odoo
       - PASSWORD=${POSTGRES_PASS}
   db:
