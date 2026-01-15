@@ -1,0 +1,15 @@
+<odoo>
+    <!-- Botón para flujo completo en ventas - VERSIÓN SIMPLIFICADA -->
+    <record id="view_sale_order_form_con_flujo" model="ir.ui.view">
+        <field name="name">sale.order.form.con.flujo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Agregar botón de flujo completo -->
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button name="action_confirm_and_invoice" type="object" 
+                        string="Confirmar y Facturar" class="btn-primary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

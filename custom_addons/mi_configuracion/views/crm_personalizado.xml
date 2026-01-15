@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_crm_lead_form_personalizado" model="ir.ui.view">
+        <field name="name">crm.lead.form.personalizado</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="partner_id" string="Cliente"/>
+            </field>
+        </field>
+    </record>
+</odoo>

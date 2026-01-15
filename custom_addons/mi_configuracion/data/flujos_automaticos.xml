@@ -1,0 +1,22 @@
+<odoo>
+    <!-- FLUJO PARA ODOO 18 - ESTRUCTURA CORRECTA -->
+    <record id="automation_confirmar_facturar" model="base.automation">
+        <field name="name">Confirmar y Facturar Automático</field>
+        <field name="model_name">sale.order</field>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trg_selection_mode">new</field>
+        <field name="filter_pre_domain">[('state', 'in', ['sale', 'done'])]</field>
+        <field name="code">
+# Código que se ejecuta cuando la condición se cumple
+if record.state in ['sale', 'done'] and not record.invoice_ids:
+    # Crear factura automáticamente
+    invoices = record._create_invoices()
+    for invoice in invoices:
+        invoice.action_post()
+    
+    # Notificar
+    record.message_post(body="✅ Factura creada automáticamente desde venta confirmada")
+        </field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>
