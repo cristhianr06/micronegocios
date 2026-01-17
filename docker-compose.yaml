@@ -41,7 +41,6 @@ services:
 networks:
   odoo-net:
     driver: bridge
-    #internal: true
 
 volumes:
   odoo-web-data:
